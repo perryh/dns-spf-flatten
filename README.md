@@ -46,6 +46,24 @@ Use IPv6 addresses:
 dns-spf-flattener -ip6 2001:db8::1 -include example.com
 ```
 
+Full example:
+
+```bash
+$ DNS_RESOLVER=1.1.1.1:53 ./dns-spf-flattener -ip4 1.2.3.4 -ip4 1.2.3.5 -ip6 2001:db8:3333:4444:5555:6666:7777:8888 -ip6 2001:db8:3333:4444:CCCC:DDDD:EEEE:FFFF -include google.com
+1.2.3.4
+1.2.3.5
+2001:db8:3333:4444:5555:6666:7777:8888
+2001:db8:3333:4444:CCCC:DDDD:EEEE:FFFF
+74.125.0.0/16
+209.85.128.0/17
+2001:4860:4000::/36
+2404:6800:4000::/36
+2607:f8b0:4000::/36
+2800:3f0:4000::/36
+2a00:1450:4000::/36
+2c0f:fb50:4000::/36
+```
+
 ## How It Works
 
 1. Resolves the SPF record (TXT record starting with `v=spf1`) for each include domain
