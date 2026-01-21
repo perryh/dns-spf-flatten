@@ -1,6 +1,6 @@
 # dns-spf-flatten
 
-A Go CLI tool to flatten DNS SPF records and output a list of IP addresses.
+A Go CLI tool to flatten DNS SPF records and output a list of IP addresses. This tool can be used to convert your SPF records to contain only IP addresses and overcome issues with more than 10 DNS lookups.
 
 ## Installation
 
