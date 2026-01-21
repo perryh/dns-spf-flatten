@@ -1,23 +1,23 @@
-# dns-spf-flattener
+# dns-spf-flatten
 
 A Go CLI tool to flatten DNS SPF records and output a list of IP addresses.
 
 ## Installation
 
 ```bash
-go install github.com/perryh/dns-spf-flattener@latest
+go install github.com/perryh/dns-spf-flatten@latest
 ```
 
 Or build from source:
 
 ```bash
-go build -o dns-spf-flattener .
+go build -o dns-spf-flatten .
 ```
 
 ## Usage
 
 ```
-dns-spf-flattener [options]
+dns-spf-flatten [options]
 ```
 
 ### Options
@@ -32,25 +32,25 @@ dns-spf-flattener [options]
 Flatten SPF records from include domains:
 
 ```bash
-dns-spf-flattener -include gmail.com -include example.com
+dns-spf-flatten -include gmail.com -include example.com
 ```
 
 Combine manual IPs with include domains:
 
 ```bash
-dns-spf-flattener -ip4 192.0.2.1 -ip4 192.0.2.2 -include example.com
+dns-spf-flatten -ip4 192.0.2.1 -ip4 192.0.2.2 -include example.com
 ```
 
 Use IPv6 addresses:
 
 ```bash
-dns-spf-flattener -ip6 2001:db8::1 -include example.com
+dns-spf-flatten -ip6 2001:db8::1 -include example.com
 ```
 
 Full example:
 
 ```bash
-$ DNS_RESOLVER=1.1.1.1:53 ./dns-spf-flattener -ip4 1.2.3.4 -ip4 1.2.3.5 -ip6 2001:db8:3333:4444:5555:6666:7777:8888 -ip6 2001:db8:3333:4444:CCCC:DDDD:EEEE:FFFF -include google.com
+$ DNS_RESOLVER=1.1.1.1:53 ./dns-spf-flatten -ip4 1.2.3.4 -ip4 1.2.3.5 -ip6 2001:db8:3333:4444:5555:6666:7777:8888 -ip6 2001:db8:3333:4444:CCCC:DDDD:EEEE:FFFF -include google.com
 1.2.3.4
 1.2.3.5
 2001:db8:3333:4444:5555:6666:7777:8888
@@ -79,5 +79,5 @@ $ DNS_RESOLVER=1.1.1.1:53 ./dns-spf-flattener -ip4 1.2.3.4 -ip4 1.2.3.5 -ip6 200
 
 Example:
 ```bash
-DNS_RESOLVER=8.8.8.8:53 dns-spf-flattener -include example.com
+DNS_RESOLVER=8.8.8.8:53 dns-spf-flatten -include example.com
 ```

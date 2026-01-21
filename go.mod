@@ -1,4 +1,4 @@
-module github.com/perryh/dns-spf-flattener
+module github.com/perryh/dns-spf-flatten
 
 go 1.25.5
 
