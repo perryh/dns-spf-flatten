@@ -122,11 +122,11 @@ func getSPFRecord(domain string) (*SPFRecord, error) {
 	var spfTxt string
 	for _, ans := range r.Answer {
 		if txt, ok := ans.(*dns.TXT); ok {
-			for _, s := range txt.Txt {
-				if strings.HasPrefix(strings.ToLower(s), "v=spf1") {
-					spfTxt = strings.ToLower(s)
-					break
-				}
+			// Concatenate all strings in the TXT record to build the complete record
+			fullTxt := strings.Join(txt.Txt, "")
+			if strings.HasPrefix(strings.ToLower(fullTxt), "v=spf1") {
+				spfTxt = strings.ToLower(fullTxt)
+				break
 			}
 		}
 	}
